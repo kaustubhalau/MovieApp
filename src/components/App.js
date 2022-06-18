@@ -24,9 +24,9 @@ class App extends React.Component {
     
   }
   isMovieFavourite = (movie) => {      // this function will get movie as argument and it will check the state whether the movie in in favourite array or not
-    const { favourites } = this.props.store.getState();
+    const { movies } = this.props.store.getState();
 
-    const index = favourites.indexOf(movie); // this will check wether perticular movie is available in favourites array, if not it will return -1
+    const index = movies.favourites.indexOf(movie); // this will check wether perticular movie is available in favourites array, if not it will return -1
     
     if(index !== -1){
 
@@ -41,9 +41,10 @@ class App extends React.Component {
   }
 
   render(){
+    const { movies } = this.props.store.getState();//our state-->{movies: {}, search ()} 
     console.log('Render');
-    const { list, favourites, showFavourites } = this.props.store.getState();//list[] favourites[] // instead of importing data from ../data we did this, getState() function is defined in 
-    console.log('RENDER', this.props.store.getState()); // new state
+    const { list, favourites, showFavourites } = movies; 
+    console.log('RENDER', this.props.store.getState()); 
     
     const displayMovies = showFavourites ? favourites : list;
     return (

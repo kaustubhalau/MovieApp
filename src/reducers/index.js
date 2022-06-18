@@ -1,11 +1,13 @@
 import { ADD_MOVIES, ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES, SET_SHOW_FAVOURITES } from "../actions";
+import { combineReducers } from "redux";
 
 const initialMoviesState = {
     list: [],              // current list
     favourites: [],
     showFavourites: false
 }
-export default function movies (state =initialMoviesState , action){
+//movie reducer
+export function movies (state =initialMoviesState , action){
     // if(action.type === ADD_MOVIES) {  // coming from dispatch
     //     // return action.movies;
     //     return{
@@ -45,3 +47,32 @@ export default function movies (state =initialMoviesState , action){
 
 }
 
+const initialSearchState = {
+    result: {}
+}
+
+//search reducer
+export function search (state = initialSearchState, action){
+    return state;
+}
+
+const initialRootState = {
+    movies: initialMoviesState,     // defined at top
+    search: initialSearchState
+}
+
+
+/************************ NOW WE DON'T NEED THIS ROOT RDUCER FUNCTION AS WE CAN DO THE SAME WORK BY USING COMBINE REDUCER FUNCTIONS******* */
+// export default function rootReducer(state = initialRootState, action){
+//     return{
+//         // state.movies is state.initialMoviesState, coming from initialRootState
+//         //// state.search is state.initialSearchState, coming from initialRootState
+//         movies: movies(state.movies, action),   // movies data can be managed by movie reducer
+//         search: search(state.search, action) // search data can be managed by search reducer
+//     }
+// }
+// INSTEAD OF USING ROOT REDUERS WE USED COMBINE REDUCER WHICH WILL DO THE SAME WORK
+export default combineReducers({
+    movies: movies,       // SAME AS  movies: movies(state.movies, action)
+    search: search        // SAME AS  search(state.search, action)
+})

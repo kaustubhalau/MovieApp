@@ -8,12 +8,12 @@ import { createStore } from 'redux';
 // import { configureStore } from '@reduxjs/toolkit';
 import './index.css';
 import App from './components/App';
-import movies from './reducers';
+// import movies from './reducers';
+import rootReducer from './reducers';  // now we don't need movies to import as we have root reducer now
 
 
 
-
-const store = createStore(movies);  //getting it from function defined in reducers
+const store = createStore(rootReducer);  //getting it from function defined in reducers
 console.log('store', store);       // here we can see all the functions of store in console
 // console.log('Before_State',store.getState());
 
