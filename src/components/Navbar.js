@@ -1,8 +1,9 @@
 import React from "react";
 // import { StoreContext } from "..";
-import { connect } from "..";
+// import { connect } from "..";  // WE CAN NOW IMPORT CONNECT FROM REACT-REDUX
 // import { data } from "../data";
 import {addMovieToList, handleMovieSearch} from '../actions';
+import { connect } from "react-redux";
 
 
 class Navbar extends React.Component {

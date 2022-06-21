@@ -4,7 +4,8 @@ import Navbar from "./Navbar";
 import MovieCard from "./MovieCard";
 import {addMovies, setShowFavourites} from "../actions";
 // import { StoreContext } from "../index";
-import { connect } from '../index';
+// import { connect } from '../index';  // WE CAN IMPORT CONNECT FROM REACT-REDUX NOW
+import { connect } from "react-redux/es/exports";
 
 
 
